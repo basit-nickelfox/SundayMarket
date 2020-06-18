@@ -1,11 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import AppIcon from "../components/AppIcon";
 import colors from "../config/colors";
 import Screen from "../components/Screen";
-import ListItem from "../components/ListItem";
+import ListItem from "../components/lists/ListItem";
 import { FlatList } from "react-native-gesture-handler";
-import ListItemSeparator from "../components/ListItemSeparator";
+import ListItemSeparator from "../components/lists/ListItemSeparator";
 
 const menuItem = [
   {

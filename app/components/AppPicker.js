@@ -3,7 +3,6 @@ import {
   StyleSheet,
   Text,
   View,
-  Platform,
   TouchableWithoutFeedback,
   FlatList,
   Modal,
@@ -34,7 +33,11 @@ const AppPicker = ({
               style={styles.icon}
             />
           )}
-          <AppText style={styles.text}>{selectedItem.label}</AppText>
+          {selectedItem ? (
+            <AppText style={styles.text}>{selectedItem.label}</AppText>
+          ) : (
+            <AppText style={styles.placeholder}>{placeholder}</AppText>
+          )}
           <MaterialCommunityIcons
             color={defaultStyles.colors.medium}
             size={20}
@@ -45,7 +48,9 @@ const AppPicker = ({
       </TouchableWithoutFeedback>
       <Modal visible={modalVisible} animationType="slide">
         <TouchableWithoutFeedback onPress={() => setModalVisible(false)}>
-          <Text style={styles.button}>CLOSE</Text>
+          <View>
+            <Text style={styles.button}>CLOSE</Text>
+          </View>
         </TouchableWithoutFeedback>
         <FlatList
           data={items}
@@ -79,6 +84,10 @@ const styles = StyleSheet.create({
   },
   text: {
     flex: 1,
+  },
+  placeholder: {
+    flex: 1,
+    color: defaultStyles.colors.medium,
   },
   icon: {
     marginRight: 10,
