@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const AppIcon = ({
-  name = email,
+  name = "email",
   bgColor = "#000",
   iconColor = "#fff",
   size = 40,
