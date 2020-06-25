@@ -8,6 +8,7 @@ import { AppForm, AppFormField, SubmitButton } from "../components/forms";
 import AppFormPicker from "../components/forms/AppFormPicker";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import FormImagePicker from "../components/forms/FormImagePicker";
+import useLocation from "../hooks/useLocation";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -18,6 +19,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const ListEditScreen = () => {
+  console.log(useLocation());
   const categories = [
     {
       backgroundColor: "#fc5c65",
