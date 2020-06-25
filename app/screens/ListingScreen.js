@@ -18,14 +18,16 @@ const listing = [
     image: require("../assets/couch.jpg"),
   },
 ];
-const ListingScreen = () => {
+const ListingScreen = ({ navigation }) => {
   return (
     <Screen style={styles.screen}>
       <FlatList
+        showsVerticalScrollIndicator={false}
         data={listing}
         keyExtractor={(listing) => listing.id.toString()}
         renderItem={({ item }) => (
           <Card
+            onPress={() => navigation.navigate("ListingDetails", item)}
             title={item.title}
             subTitle={"$" + item.price}
             image={item.image}

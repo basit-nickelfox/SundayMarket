@@ -4,10 +4,10 @@ import { View, StyleSheet, Image, ImageBackground, Text } from "react-native";
 import AppButton from "../components/AppButton";
 import colors from "../config/colors";
 
-const WelcomeScreen = () => {
-  const onPress = () => {
-    console.log("Pressed");
-  };
+const WelcomeScreen = ({ navigation }) => {
+  // const onPress = () => {
+  //   console.log("Pressed");
+  // };
   return (
     <ImageBackground
       style={styles.image}
@@ -19,8 +19,16 @@ const WelcomeScreen = () => {
         <Text style={styles.text}>Sell What You Don't Need</Text>
       </View>
       <View style={styles.bottomView}>
-        <AppButton color={colors.primary} text="LOGIN" onPress={onPress} />
-        <AppButton color={colors.secondary} text="REGISTER" onPress={onPress} />
+        <AppButton
+          color={colors.primary}
+          text="LOGIN"
+          onPress={() => navigation.navigate("Login")}
+        />
+        <AppButton
+          color={colors.secondary}
+          text="REGISTER"
+          onPress={() => navigation.navigate("Register")}
+        />
       </View>
     </ImageBackground>
   );
