@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import * as Location from "expo-location";
 
 export default useLocation = () => {
-  const [location, setLocation] = useState({ latitude: "", longitude: "" });
-  useEffect(() => {
-    getLocation();
-  }, []);
+  const [location, setLocation] = useState();
+
   const getLocation = async () => {
     try {
       const { granted } = await Location.requestPermissionsAsync();
@@ -15,8 +13,13 @@ export default useLocation = () => {
       } = await Location.getLastKnownPositionAsync();
       setLocation({ latitude, longitude });
     } catch (error) {
-      alert("Something went wrong", error);
+      alert("Please enable the location");
     }
   };
+  // console.log(location);
+  useEffect(() => {
+    getLocation();
+  }, []);
+
   return location;
 };

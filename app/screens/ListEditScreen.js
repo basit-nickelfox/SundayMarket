@@ -19,7 +19,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const ListEditScreen = () => {
-  const location = useLocation();
+  // const location = useLocation();
   const categories = [
     {
       backgroundColor: "#fc5c65",

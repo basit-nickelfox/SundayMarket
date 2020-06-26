@@ -14,6 +14,7 @@ const menuItem = [
       name: "format-list-bulleted",
       background: colors.primary,
     },
+    // targetScreen:'MyListing'
   },
   {
     title: "My Messages",
@@ -21,9 +22,10 @@ const menuItem = [
       name: "email",
       background: colors.secondary,
     },
+    targetScreen: "Messages",
   },
 ];
-const MyAccountScreen = () => {
+const MyAccountScreen = ({ navigation }) => {
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
@@ -39,6 +41,7 @@ const MyAccountScreen = () => {
           keyExtractor={(menuItem) => menuItem.title}
           renderItem={({ item }) => (
             <ListItem
+              onPress={() => navigation.navigate(item.targetScreen)}
               title={item.title}
               IconComponent={
                 <AppIcon
